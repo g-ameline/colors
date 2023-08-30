@@ -113,7 +113,7 @@ func Println(content any, features ...string) {
 	fmt.Print(content)
 	fmt.Println(Reset)
 }
-func color_scope(color string) {
+func Color_scope(color string) {
 	fmt.Print(color)
 	defer fmt.Print(Reset)
 }
