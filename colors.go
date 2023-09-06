@@ -57,15 +57,12 @@ func Println(content any, features ...string) {
 	fmt.Print(content)
 	fmt.Println(Reset)
 }
-func Color_scope(color string) {
-	fmt.Print(color)
-	defer fmt.Print(Reset)
-} // to be called into curly brackets
+func Print(content any, features ...string) {
+	for _, feature := range features {
+		fmt.Print(feature)
+	}
+	fmt.Print(content)
+	fmt.Print(Reset)
+}
 
 func Reseting() { fmt.Print(Reset) }
-
-type Colorable string
-
-func (text Colorable) Print(features ...string) {
-	Println(text, features...)
-}
