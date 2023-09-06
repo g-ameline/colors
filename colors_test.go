@@ -12,7 +12,8 @@ func Test_testy(t *testing.T) {
 
 	sentence := "holala, merde alors"
 
-	print(Blue, Blink)
+	Color(WHITE, GRAY)
+	Color(Blue, Blink)
 	defer Reseting()
 	println(sentence)
 	println(phrase)

@@ -52,17 +52,23 @@ const Reverse = "\033[7m"    // reverse
 
 func Println(content any, features ...string) {
 	for _, feature := range features {
-		fmt.Print(feature)
+		print(feature)
 	}
 	fmt.Print(content)
-	fmt.Println(Reset)
+	println(Reset)
 }
 func Print(content any, features ...string) {
 	for _, feature := range features {
-		fmt.Print(feature)
+		print(feature)
 	}
 	fmt.Print(content)
-	fmt.Print(Reset)
+	print(Reset)
 }
 
-func Reseting() { fmt.Print(Reset) }
+func Color(features ...string) {
+	for _, feature := range features {
+		print(feature)
+	}
+}
+
+func Reseting() { print(Reset) }
