@@ -71,4 +71,4 @@ func Color(features ...string) {
 	}
 }
 
-func Reseting() { print(Reset) }
+func Resetting() { print(Reset) }
