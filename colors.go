@@ -52,23 +52,44 @@ const Reverse = "\033[7m"    // reverse
 
 func Println(content any, features ...string) {
 	for _, feature := range features {
-		print(feature)
+		fmt.Print(feature)
 	}
 	fmt.Print(content)
-	println(Reset)
+	fmt.Println(Reset)
 }
 func Print(content any, features ...string) {
 	for _, feature := range features {
-		print(feature)
+		fmt.Print(feature)
 	}
 	fmt.Print(content)
-	print(Reset)
+	fmt.Print(Reset)
 }
 
 func Color(features ...string) {
 	for _, feature := range features {
-		print(feature)
+		fmt.Print(feature)
 	}
 }
 
 func Resetting() { print(Reset) }
+
+func Print_map(damap map[string]any) {
+	for k, v := range damap {
+		Print(k, Magenta)
+		fmt.Print(" : ")
+		fmt.Printf("%T = ", v)
+		Println(v, Cyan)
+	}
+}
+func Print_struct(dastruct any) {
+	fmt.Print(Yellow)
+	fmt.Printf("%+v\n", dastruct)
+}
+
+func Println_lvl(level int, contents ...string) {
+	var indentation string = " "
+	for i := 0; i < level; i++ {
+		indentation += indentation
+	}
+	fmt.Println(indentation, contents)
+}
