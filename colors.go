@@ -2,94 +2,113 @@ package colors
 
 import "fmt"
 
-const Reset = "\033[0m"
+const reset = "\033[0m"
 
-const DefaulT = "\033[39m" // default foreground
+const defaulT = "\033[39m" // default foreground
 const DEFAULT = "\033[49m" // default background
 // foreground
-const Black = "\033[30m"
-const Red = "\033[31m"
-const Green = "\033[32m"
-const Yellow = "\033[33m"
-const Blue = "\033[34m"
-const Magenta = "\033[35m"
-const Cyan = "\033[36m"
-const White = "\033[37m"
-const Gray = "\033[90m"
-const Red_light = "\033[91m"
-const Green_light = "\033[92m"
-const Yellow_light = "\033[93m"
-const Blue_light = "\033[94m"
-const Magenta_light = "\033[95m"
-const Cyan_light = "\033[96m"
-const Gray_light = "\033[97m"
+const black = "\033[30m"
+const red = "\033[31m"
+const green = "\033[32m"
+const yellow = "\033[33m"
+const blue = "\033[34m"
+const magenta = "\033[35m"
+const cyan = "\033[36m"
+const white = "\033[37m"
+const gray = "\033[90m"
+const red_light = "\033[91m"
+const green_light = "\033[92m"
+const yellow_light = "\033[93m"
+const blue_light = "\033[94m"
+const magenta_light = "\033[95m"
+const cyan_light = "\033[96m"
+const gray_light = "\033[97m"
 
 // background
-const BLACK = "\033[40m"
-const RED = "\033[41m"
-const GREEN = "\033[42m"
-const YELLOW = "\033[43m"
-const BLUE = "\033[44m"
-const MAGENTA = "\033[45m"
-const CYAN = "\033[46m"
-const WHITE = "\033[47m"
-const GRAY = "\033[100m"
-const RED_LIGHT = "\033[101m"
-const GREEN_LIGHT = "\033[102m"
-const YELLOW_LIGHT = "\033[103m"
-const BLUE_LIGHT = "\033[104m"
-const MAGENTA_LIGHT = "\033[105m"
-const CYAN_LIGHT = "\033[106m"
-const GRAY_LIGHT = "\033[107m"
+const bg_black = "\033[40m"
+const bg_red = "\033[41m"
+const bg_green = "\033[42m"
+const bg_yellow = "\033[43m"
+const bg_blue = "\033[44m"
+const bg_magenta = "\033[45m"
+const bg_cyan = "\033[46m"
+const bg_white = "\033[47m"
+const bg_gray = "\033[100m"
+const bg_red_light = "\033[101m"
+const bg_green_light = "\033[102m"
+const bg_yellow_light = "\033[103m"
+const bg_blue_light = "\033[104m"
+const bg_magenta_light = "\033[105m"
+const bg_cyan_light = "\033[106m"
+const bg_gray_light = "\033[107m"
 
 // effects
-const Bold = "\033[1m"       // bold
-const Faint = "\033[2m"      // faint
-const Standout = "\033[3m"   // standout
-const Underlined = "\033[4m" // underlined
-const Blink = "\033[5m"      // blink
-const Reverse = "\033[7m"    // reverse
+const bold = "\033[1m"       // bold
+const faint = "\033[2m"      // faint
+const standout = "\033[3m"   // standout
+const underlined = "\033[4m" // underlined
+const blink = "\033[5m"      // blink
+const reverse = "\033[7m"    // reverse
 
-func Println(content any, features ...string) {
-	for _, feature := range features {
-		fmt.Print(feature)
-	}
-	fmt.Print(content)
-	fmt.Println(Reset)
+func Red(things ...any) {
+	fmt.Print(red)
+	fmt.Println(things...)
+	fmt.Print(reset)
 }
-func Print(content any, features ...string) {
-	for _, feature := range features {
-		fmt.Print(feature)
-	}
-	fmt.Print(content)
-	fmt.Print(Reset)
+func Yellow(things ...any) {
+	fmt.Print(yellow)
+	fmt.Println(things...)
+	fmt.Print(reset)
 }
-
-func Color(features ...string) {
-	for _, feature := range features {
-		fmt.Print(feature)
-	}
+func Green(things ...any) {
+	fmt.Print(green)
+	fmt.Println(things...)
+	fmt.Print(reset)
 }
-
-func Resetting() { print(Reset) }
+func Blue(things ...any) {
+	fmt.Print(blue)
+	fmt.Println(things...)
+	fmt.Print(reset)
+}
+func Magenta(things ...any) {
+	fmt.Print(magenta)
+	fmt.Println(things...)
+	fmt.Print(reset)
+}
+func Cyan(things ...any) {
+	fmt.Print(cyan)
+	fmt.Println(things...)
+	fmt.Print(reset)
+}
+func White(things ...any) {
+	fmt.Print(white)
+	fmt.Println(things...)
+	fmt.Print(reset)
+}
+func Gray(things ...any) {
+	fmt.Print(gray)
+	fmt.Println(things...)
+	fmt.Print(reset)
+}
 
 func Print_map(damap map[string]any) {
 	for k, v := range damap {
-		Print(k, Magenta)
+		fmt.Print(k, magenta)
 		fmt.Print(" : ")
 		fmt.Printf("%T = ", v)
-		Println(v, Cyan)
+		fmt.Println(v, cyan)
 	}
 }
 func Print_struct(dastruct any) {
-	fmt.Print(Yellow)
+	fmt.Print(yellow)
 	fmt.Printf("%+v\n", dastruct)
 }
 
-func Println_lvl(level int, contents ...string) {
+func Indent(level int, stuff ...any) {
 	var indentation string = " "
 	for i := 0; i < level; i++ {
 		indentation += indentation
 	}
-	fmt.Println(indentation, contents)
+	fmt.Print(indentation)
+	fmt.Println(stuff...)
 }
